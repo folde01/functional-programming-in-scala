@@ -28,7 +28,7 @@ object ReferentialTransparency extends App {
   val (cup2, charge2) = myCafe.buyCoffee(cc2)
   val (cup3, charge3) = myCafe.buyCoffee(cc2)
 
-  val coalesce1 = coalesce(List(charge1, charge2, charge3)))
+  val coalesce1 = coalesce(List(charge1, charge2, charge3))
   println("coalesce: " + coalesce(List(charge1, charge2, charge3)))
 }
 
