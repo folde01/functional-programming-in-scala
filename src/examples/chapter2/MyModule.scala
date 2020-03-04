@@ -8,16 +8,20 @@ object MyModule {
     msg.format(n, abs(n))
   }
 
+  import scala.annotation.tailrec
+
   def factorial(n: Int): Int = {
-    def go(m: Int, product: Int): Int = {
-      if (m == 0 || m == 1) product
+    @tailrec def go(m: Int, product: Int): Int = {
+      if (m <= 1) product
       else go(m - 1, product * m)
     }
     go(n, 1)
   }
 
-
-
+  def funcFormat(n: Int, s: String, f: Int => Int): String = {
+    val msg = "The " + s + " of %d is %d"
+    msg.format(n, f(n))
+  }
 
   def main(args: Array[String]): Unit = {
     println(absFormat(-5))
@@ -25,7 +29,7 @@ object MyModule {
 
     println(factorial(0))
     println(factorial(1))
-    println(factorial(2))
-    println(factorial(3))
+    println("funcFormat(-5, \"absolute value\", abs): " + funcFormat(-5, "absolute value", abs))
+
   }
 }
