@@ -13,7 +13,8 @@ object Ex2_isSorted extends App {
   }
 
   assert(isSorted(Array(), (a: Int, b: Int) => a < b))
+  assert(isSorted(Array(1), (a: Int, b: Int) => a > b))
   assert(isSorted(Array(1, 2), (a: Int, b: Int) => a < b))
-  //assert(isSorted(Array(2, 1), (a: Int, b: Int) => a < b))
+  //assert(isSorted(Array(2, 1), (a: Int, b: Int) => a < b)) // unordered
   assert(isSorted(Array("a", "b"), (a: String, b: String) => a < b))
 }
