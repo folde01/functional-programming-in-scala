@@ -29,5 +29,15 @@ object Ex1 extends App {
   println(fibTail(3))
   println(fibTail(5))
 
+  def fibTailUdemy(n: Int): Int = {
+    def loop(i: Int, last: Int, nextToLast: Int): Int =
+      if(i>= n) last
+      else loop(i + 1, last + nextToLast, last)
+
+    if (n <= 2) 1
+    else loop(2, 1, 1)
+  }
+
+  println("fibTailUdemy(8): " + fibTailUdemy(8))
 }
 

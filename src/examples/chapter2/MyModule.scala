@@ -24,7 +24,7 @@ object MyModule {
   }
 
   def findFirstMonomorphic(ss: Array[String], key: String): Int = {
-    def loop(n: Int): Int = {
+    @tailrec def loop(n: Int): Int = {
       if (n >= ss.length) -1
       else if (ss(n) == key) n
       else loop(n + 1)
@@ -33,7 +33,7 @@ object MyModule {
   }
 
   def findFirstPolymorphic[A](as: Array[A], p: A => Boolean): Int = {
-    def loop(n: Int): Int = {
+    @tailrec def loop(n: Int): Int = {
       if (n >= as.length) -1
       else if (p(as(n))) n
       else loop(n + 1)
@@ -49,7 +49,6 @@ object MyModule {
     println(factorial(1))
     println("funcFormat(-5, \"absolute value\", abs): " + funcFormat(-5, "absolute value", abs))
     println(findFirstMonomorphic(Array("a", "b", "b"), "b"))
-    println(findFirstPolymorphic(Array(1, "a", 2), (x: Any) => x == 0))
-
+    println(findFirstPolymorphic(Array(1, "a", 2), (x: Any) => x == 2))
   }
 }
